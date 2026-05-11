@@ -119,6 +119,43 @@
             margin-bottom: 12px;
         }
 
+        /* Сворачиваемые разделы */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: color 0.3s;
+            user-select: none;
+        }
+
+        .collapsible-trigger:hover {
+            color: #ff4d6d;
+            text-shadow: 0 0 8px #c41e3a;
+        }
+
+        .collapsible-trigger::after {
+            content: "▼";
+            font-size: 0.8rem;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .collapsible-trigger.open::after {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-in-out;
+        }
+
+        .collapsible-content.open {
+            max-height: 3000px;
+        }
+
         .about-text {
             font-size: 1.2rem;
             line-height: 1.8;
@@ -163,7 +200,7 @@
             list-style: none;
             padding: 0;
             max-width: 400px;
-            margin: 0 auto;
+            margin: 20px auto 0;
             text-align: left;
             font-size: 1.1rem;
             color: #cbb2ba;
@@ -189,7 +226,7 @@
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 25px;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 20px auto 0;
             padding: 0 10px;
         }
 
@@ -299,7 +336,7 @@
             color: #fff;
         }
 
-        /* 👑 СТИЛЬ ВСПЛЫВАШКИ */
+        /* Всплывашка */
         .popup-message {
             position: fixed;
             pointer-events: none;
@@ -363,71 +400,75 @@
             </div>
         </div>
 
-        <!-- MUSIC -->
+        <!-- MUSIC (сворачиваемый) -->
         <div class="section">
-            <div class="label">MUSIC</div>
-            <ul class="music-list">
-                <li>i want to things to be beautiful — devimccallion</li>
-                <li>deep blue — heaven pierce her</li>
-                <li>blood moon — christian death</li>
-                <li>КРОВАВЫЙ РАЙ — SUGAR ТВАРЬ</li>
-                <li>IchBinHuiDuBistBuhDuBistSchubiIchBinDu — grossstadtgeflüster</li>
-                <li>PUNK TACTICS — joey valence &amp; brae</li>
-                <li>united by music — joost klein, tommie cash</li>
-                <li>playing dead — and one</li>
-                <li>you're not a doctor — ximora</li>
-                <li>&amp; etc.</li>
-            </ul>
+            <div class="label collapsible-trigger" id="musicTrigger">🎵 MUSIC</div>
+            <div class="collapsible-content" id="musicContent">
+                <ul class="music-list">
+                    <li>i want to things to be beautiful — devimccallion</li>
+                    <li>deep blue — heaven pierce her</li>
+                    <li>blood moon — christian death</li>
+                    <li>КРОВАВЫЙ РАЙ — SUGAR ТВАРЬ</li>
+                    <li>IchBinHuiDuBistBuhDuBistSchubiIchBinDu — grossstadtgeflüster</li>
+                    <li>PUNK TACTICS — joey valence &amp; brae</li>
+                    <li>united by music — joost klein, tommie cash</li>
+                    <li>playing dead — and one</li>
+                    <li>you're not a doctor — ximora</li>
+                    <li>&amp; etc.</li>
+                </ul>
+            </div>
         </div>
 
-        <!-- FAVOURITES -->
+        <!-- FAVOURITES (сворачиваемый) -->
         <div class="section">
-            <div class="label">FAVOURITES</div>
-            <div class="character-grid">
-                <div class="character-card">
-                    <img src="https://i.playground.ru/e/BhAsIiDHtPgYw7DeB4D2JQ.jpeg" alt="V">
-                    <div class="character-name">V</div>
-                    <div class="character-from">Devil May Cry</div>
-                </div>
-                <div class="character-card">
-                    <img src="https://images.stopgame.ru/news/2022/11/21/oupRMlF.jpg" alt="Bayonetta">
-                    <div class="character-name">Bayonetta</div>
-                    <div class="character-from">Bayonetta</div>
-                </div>
-                <div class="character-card">
-                    <img src="https://i.ytimg.com/vi/h6e0-whg6EA/maxresdefault.jpg" alt="Gabriel">
-                    <div class="character-name">Gabriel</div>
-                    <div class="character-from">Ultrakill</div>
-                </div>
-                <div class="character-card">
-                    <img src="https://i.playground.ru/e/t_lnmjZWjvLwETTcqSTLew.jpeg" alt="Dealer">
-                    <div class="character-name">Dealer</div>
-                    <div class="character-from">Buckshot Roulette</div>
-                </div>
-                <div class="character-card">
-                    <img src="https://i.pinimg.com/originals/8d/3c/5b/8d3c5b33bf216feafe95d81176a87d6f.jpg" alt="Auditor">
-                    <div class="character-name">Auditor</div>
-                    <div class="character-from">Madness Combat</div>
-                </div>
-                <div class="character-card">
-                    <img src="https://www.gamespot.com/a/uploads/screen_kubrick/1587/15875866/3500967-mk11-jade-promo-1.jpg" alt="Jade">
-                    <div class="character-name">Jade</div>
-                    <div class="character-from">Mortal Kombat</div>
-                </div>
-                <div class="character-card">
-                    <img src="https://www.pravmir.ru/wp-content/uploads/2012/06/petr-1-768x496.jpg" alt="Peter the Great">
-                    <div class="character-name">Peter the Great</div>
-                    <div class="character-from">History</div>
-                </div>
-                <div class="character-card">
-                    <img src="https://i.ytimg.com/vi/WQL2VTkCqU0/maxresdefault.jpg" alt="Napoleon">
-                    <div class="character-name">Napoleon Bonaparte</div>
-                    <div class="character-from">History</div>
-                </div>
-                <div class="character-card">
-                    <img src="https://img.gazeta.ru/files3/889/13371889/volter-pic4_zoom-1500x1500-30447.jpg" alt="Voltaire">
-                    <div class="character-name">Voltaire</div>
-                    <div class="character-from">Philosopher</div>
+            <div class="label collapsible-trigger" id="favsTrigger">👑 FAVOURITES</div>
+            <div class="collapsible-content" id="favsContent">
+                <div class="character-grid">
+                    <div class="character-card">
+                        <img src="https://i.playground.ru/e/BhAsIiDHtPgYw7DeB4D2JQ.jpeg" alt="V">
+                        <div class="character-name">V</div>
+                        <div class="character-from">Devil May Cry</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://images.stopgame.ru/news/2022/11/21/oupRMlF.jpg" alt="Bayonetta">
+                        <div class="character-name">Bayonetta</div>
+                        <div class="character-from">Bayonetta</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://i.ytimg.com/vi/h6e0-whg6EA/maxresdefault.jpg" alt="Gabriel">
+                        <div class="character-name">Gabriel</div>
+                        <div class="character-from">Ultrakill</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://i.playground.ru/e/t_lnmjZWjvLwETTcqSTLew.jpeg" alt="Dealer">
+                        <div class="character-name">Dealer</div>
+                        <div class="character-from">Buckshot Roulette</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://i.pinimg.com/originals/8d/3c/5b/8d3c5b33bf216feafe95d81176a87d6f.jpg" alt="Auditor">
+                        <div class="character-name">Auditor</div>
+                        <div class="character-from">Madness Combat</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://www.gamespot.com/a/uploads/screen_kubrick/1587/15875866/3500967-mk11-jade-promo-1.jpg" alt="Jade">
+                        <div class="character-name">Jade</div>
+                        <div class="character-from">Mortal Kombat</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://www.pravmir.ru/wp-content/uploads/2012/06/petr-1-768x496.jpg" alt="Peter the Great">
+                        <div class="character-name">Peter the Great</div>
+                        <div class="character-from">History</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://i.ytimg.com/vi/WQL2VTkCqU0/maxresdefault.jpg" alt="Napoleon">
+                        <div class="character-name">Napoleon Bonaparte</div>
+                        <div class="character-from">History</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://img.gazeta.ru/files3/889/13371889/volter-pic4_zoom-1500x1500-30447.jpg" alt="Voltaire">
+                        <div class="character-name">Voltaire</div>
+                        <div class="character-from">Philosopher</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -455,20 +496,15 @@
         </div>
     </div>
 
-    <!-- СКРИПТЫ: вишни + искры + вассальская клятва -->
     <script>
-        // ---------- ПАДАЮЩИЕ ВИШНИ + СЛЕД МЫШИ (как в прошлый раз) ----------
+        // ---------- ПАДАЮЩИЕ ВИШНИ (лёгкие, без следа) ----------
         (function() {
             const canvas = document.getElementById('particleCanvas');
             const ctx = canvas.getContext('2d');
 
             let width, height;
             let cherries = [];
-            let mouseX = -100, mouseY = -100;
-            let sparks = [];
-
-            const cherryEmoji = '🍒';
-            const maxCherries = 25;
+            const maxCherries = 15; // меньше = плавнее
 
             function resize() {
                 width = window.innerWidth;
@@ -481,24 +517,20 @@
 
             class Cherry {
                 constructor() {
-                    this.reset();
-                    this.y = Math.random() * height;
-                }
-                reset() {
                     this.x = Math.random() * width;
-                    this.y = -20 - Math.random() * 200;
-                    this.size = 20 + Math.random() * 25;
-                    this.speed = 0.5 + Math.random() * 1.2;
+                    this.y = Math.random() * height;
+                    this.size = 20 + Math.random() * 20;
+                    this.speed = 0.4 + Math.random() * 0.9;
                     this.rotation = Math.random() * Math.PI * 2;
-                    this.rotSpeed = (Math.random() - 0.5) * 0.03;
-                    this.opacity = 0.7 + Math.random() * 0.3;
+                    this.rotSpeed = (Math.random() - 0.5) * 0.02;
+                    this.opacity = 0.6 + Math.random() * 0.3;
                 }
                 update() {
                     this.y += this.speed;
                     this.rotation += this.rotSpeed;
                     if (this.y > height + 50) {
-                        this.reset();
                         this.y = -20;
+                        this.x = Math.random() * width;
                     }
                 }
                 draw(ctx) {
@@ -508,10 +540,10 @@
                     ctx.font = `${this.size}px Arial`;
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
-                    ctx.fillStyle = `rgba(200, 20, 50, ${this.opacity})`;
-                    ctx.shadowColor = '#ff4d6d';
-                    ctx.shadowBlur = 8;
-                    ctx.fillText(cherryEmoji, 0, 0);
+                    ctx.fillStyle = `rgba(190, 20, 40, ${this.opacity})`;
+                    ctx.shadowColor = '#c41e3a';
+                    ctx.shadowBlur = 6;
+                    ctx.fillText('🍒', 0, 0);
                     ctx.restore();
                 }
             }
@@ -520,54 +552,11 @@
                 cherries.push(new Cherry());
             }
 
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                for (let i = 0; i < 2; i++) {
-                    sparks.push(new Spark(mouseX, mouseY));
-                }
-            });
-
-            class Spark {
-                constructor(x, y) {
-                    this.x = x;
-                    this.y = y;
-                    this.vx = (Math.random() - 0.5) * 2;
-                    this.vy = (Math.random() - 0.5) * 2 - 1;
-                    this.life = 1.0;
-                    this.decay = 0.01 + Math.random() * 0.02;
-                    this.size = 3 + Math.random() * 7;
-                }
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    this.life -= this.decay;
-                    this.vy += 0.03;
-                }
-                draw(ctx) {
-                    if (this.life <= 0) return;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size * this.life, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(255, 77, 109, ${this.life})`;
-                    ctx.shadowColor = '#ff4d6d';
-                    ctx.shadowBlur = 10 * this.life;
-                    ctx.fill();
-                    ctx.restore();
-                }
-            }
-
             function animate() {
                 ctx.clearRect(0, 0, width, height);
                 for (let cherry of cherries) {
                     cherry.update();
                     cherry.draw(ctx);
-                }
-                for (let i = sparks.length - 1; i >= 0; i--) {
-                    sparks[i].update();
-                    sparks[i].draw(ctx);
-                    if (sparks[i].life <= 0) {
-                        sparks.splice(i, 1);
-                    }
                 }
                 requestAnimationFrame(animate);
             }
@@ -575,25 +564,44 @@
             animate();
         })();
 
-        // ---------- ВСПЛЫВАЮЩЕЕ ПОСЛАНИЕ "CKЛОНИСЬ ПРЕДО МНОЙ" ----------
+        // ---------- СВОРАЧИВАЕМЫЕ РАЗДЕЛЫ ----------
         (function() {
-            const tags = document.querySelectorAll('.fandom-tag'); // только спаны, не ссылки
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function() {
+                    this.classList.toggle('open');
+                    const content = this.nextElementSibling;
+                    if (content) {
+                        content.classList.toggle('open');
+                    }
+                });
+            });
+        })();
+
+        // ---------- ЧЕРЕДУЮЩИЕСЯ ФРАЗЫ НА ФАНДОМАХ ----------
+        (function() {
+            const tags = document.querySelectorAll('.fandom-tag');
+            // храним счетчик для каждой кнопки, чтобы чередовать фразы
+            const counters = new Map();
+
             tags.forEach(tag => {
+                counters.set(tag, 0); // начальное значение
                 tag.addEventListener('click', function(e) {
-                    // Создаём элемент
+                    const count = counters.get(tag) || 0;
+                    const phrase = count % 2 === 0 ? 'СКЛОНИСЬ ПРЕДО МНОЙ' : 'BOW BEFORE ME';
+                    counters.set(tag, count + 1);
+
                     const popup = document.createElement('div');
                     popup.className = 'popup-message';
-                    popup.textContent = 'CKЛОНИСЬ ПРЕДО МНОЙ';
-                    
-                    // Позиционируем рядом с местом клика (по центру по горизонтали относительно курсора)
+                    popup.textContent = phrase;
+
                     const x = e.clientX;
                     const y = e.clientY;
                     popup.style.left = x + 'px';
-                    popup.style.top = (y - 10) + 'px'; // чуть выше курсора
-                    
+                    popup.style.top = (y - 10) + 'px';
+
                     document.body.appendChild(popup);
-                    
-                    // Удаляем через 2 секунды (после завершения анимации)
+
                     setTimeout(() => {
                         if (popup && popup.parentNode) {
                             popup.remove();
