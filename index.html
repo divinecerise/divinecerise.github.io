@@ -119,7 +119,6 @@
             margin-bottom: 12px;
         }
 
-        /* Сворачиваемые разделы */
         .collapsible-trigger {
             cursor: pointer;
             display: flex;
@@ -336,7 +335,6 @@
             color: #fff;
         }
 
-        /* Всплывашка */
         .popup-message {
             position: fixed;
             pointer-events: none;
@@ -469,6 +467,12 @@
                         <div class="character-name">Voltaire</div>
                         <div class="character-from">Philosopher</div>
                     </div>
+                    <!-- НОВАЯ КАРТОЧКА: РУНА -->
+                    <div class="character-card">
+                        <img src="https://i.pinimg.com/originals/b3/b3/42/b3b342e539aa5295d1395c04a3ac0f59.jpg" alt="Runa">
+                        <div class="character-name">Runa</div>
+                        <div class="character-from">Kakegurui</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -504,7 +508,7 @@
 
             let width, height;
             let cherries = [];
-            const maxCherries = 15; // меньше = плавнее
+            const maxCherries = 15;
 
             function resize() {
                 width = window.innerWidth;
@@ -581,11 +585,10 @@
         // ---------- ЧЕРЕДУЮЩИЕСЯ ФРАЗЫ НА ФАНДОМАХ ----------
         (function() {
             const tags = document.querySelectorAll('.fandom-tag');
-            // храним счетчик для каждой кнопки, чтобы чередовать фразы
             const counters = new Map();
 
             tags.forEach(tag => {
-                counters.set(tag, 0); // начальное значение
+                counters.set(tag, 0);
                 tag.addEventListener('click', function(e) {
                     const count = counters.get(tag) || 0;
                     const phrase = count % 2 === 0 ? 'СКЛОНИСЬ ПРЕДО МНОЙ' : 'BOW BEFORE ME';
