@@ -26,16 +26,6 @@
             position: relative;
         }
 
-        #particleCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
         .container {
             max-width: 800px;
             width: 100%;
@@ -49,22 +39,6 @@
             position: relative;
             z-index: 2;
             animation: fadeIn 2s ease-in-out;
-        }
-
-        .container::before {
-            content: "🍒";
-            font-size: 40px;
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            filter: drop-shadow(0 0 8px crimson);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-8px); }
         }
 
         @keyframes fadeIn {
@@ -96,6 +70,14 @@
             text-shadow: 0 0 8px #3a0000;
             margin-bottom: 35px;
             font-weight: 500;
+        }
+
+        .pronouns {
+            font-size: 1.1rem;
+            color: #cbb2ba;
+            font-style: italic;
+            margin-bottom: 35px;
+            line-height: 1.6;
         }
 
         .divider {
@@ -169,7 +151,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -220,7 +202,8 @@
             border-bottom: none;
         }
 
-        .character-grid {
+        .character-grid,
+        .ship-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 25px;
@@ -229,7 +212,8 @@
             padding: 0 10px;
         }
 
-        .character-card {
+        .character-card,
+        .ship-card {
             background: rgba(10, 0, 2, 0.6);
             border: 1px solid #4a0b1a;
             border-radius: 6px;
@@ -240,13 +224,15 @@
             flex-direction: column;
         }
 
-        .character-card:hover {
+        .character-card:hover,
+        .ship-card:hover {
             border-color: #c41e3a;
             box-shadow: 0 0 20px #c41e3a;
             transform: translateY(-5px);
         }
 
-        .character-card img {
+        .character-card img,
+        .ship-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
@@ -255,11 +241,13 @@
             transition: filter 0.4s;
         }
 
-        .character-card:hover img {
+        .character-card:hover img,
+        .ship-card:hover img {
             filter: grayscale(0%);
         }
 
-        .character-name {
+        .character-name,
+        .ship-name {
             font-family: 'Cinzel Decorative', cursive;
             font-size: 1rem;
             letter-spacing: 2px;
@@ -268,7 +256,8 @@
             text-shadow: 0 0 5px #8b0000;
         }
 
-        .character-from {
+        .character-from,
+        .ship-from {
             font-size: 0.8rem;
             color: #b87c8a;
             margin-bottom: 10px;
@@ -366,11 +355,15 @@
 </head>
 <body>
 
-    <canvas id="particleCanvas"></canvas>
-
     <div class="container">
         <h1>Cerise</h1>
         <div class="subtitle">I don't need god because I'm him</div>
+
+        <!-- ПРОНОМИНЫ -->
+        <div class="pronouns">
+            She/her. Cassgender. What you choose to see me as is irrelevant.
+            Biologically, I am female — and that is not up for debate.
+        </div>
 
         <div class="divider"></div>
 
@@ -394,13 +387,15 @@
                 <span class="fandom-tag">Buckshot Roulette</span>
                 <span class="fandom-tag">Madness Combat</span>
                 <span class="fandom-tag">Mortal Kombat</span>
+                <span class="fandom-tag">Call of Duty</span>
+                <span class="fandom-tag">Resident Evil</span>
                 <a href="secret.html" target="_blank" class="secret-link">&amp; many more</a>
             </div>
         </div>
 
         <!-- MUSIC (сворачиваемый) -->
         <div class="section">
-            <div class="label collapsible-trigger" id="musicTrigger">🎵 MUSIC</div>
+            <div class="label collapsible-trigger" id="musicTrigger">MUSIC</div>
             <div class="collapsible-content" id="musicContent">
                 <ul class="music-list">
                     <li>i want to things to be beautiful — devimccallion</li>
@@ -419,9 +414,10 @@
 
         <!-- FAVOURITES (сворачиваемый) -->
         <div class="section">
-            <div class="label collapsible-trigger" id="favsTrigger">👑 FAVOURITES</div>
+            <div class="label collapsible-trigger" id="favsTrigger">FAVOURITES</div>
             <div class="collapsible-content" id="favsContent">
                 <div class="character-grid">
+                    <!-- существующие -->
                     <div class="character-card">
                         <img src="https://i.playground.ru/e/BhAsIiDHtPgYw7DeB4D2JQ.jpeg" alt="V">
                         <div class="character-name">V</div>
@@ -433,7 +429,7 @@
                         <div class="character-from">Bayonetta</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://avatars.mds.yandex.net/i?id=94eccceb51992f78478632f5c31dcb5f_l-5254698-images-thumbs&n=13" alt="Gabriel">
+                        <img src="https://i.ytimg.com/vi/h6e0-whg6EA/maxresdefault.jpg" alt="Gabriel">
                         <div class="character-name">Gabriel</div>
                         <div class="character-from">Ultrakill</div>
                     </div>
@@ -452,6 +448,54 @@
                         <div class="character-name">Jade</div>
                         <div class="character-from">Mortal Kombat</div>
                     </div>
+                    <!-- новые персонажи Mortal Kombat после Джейд -->
+                    <div class="character-card">
+                        <img src="https://share.google/LrnoI4LpuW2DSyuAr" alt="Kenshi">
+                        <div class="character-name">Kenshi</div>
+                        <div class="character-from">Mortal Kombat</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://share.google/437A4dEZP4svPCfVU" alt="Bi Han / Noob Saibot">
+                        <div class="character-name">Bi Han / Noob Saibot</div>
+                        <div class="character-from">Mortal Kombat</div>
+                    </div>
+                    <!-- остальные новые персы -->
+                    <div class="character-card">
+                        <img src="https://share.google/blAjpKM39vGMgoKES" alt="Chevalier de Lorraine">
+                        <div class="character-name">Chevalier de Lorraine</div>
+                        <div class="character-from">Versailles</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://share.google/EIKWO5yDYeFvRvB18" alt="Luis Serra Navarro">
+                        <div class="character-name">Luis Serra Navarro</div>
+                        <div class="character-from">Resident Evil</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://share.google/wldZ3Yt2dSI3N04In" alt="Albert Wesker">
+                        <div class="character-name">Albert Wesker</div>
+                        <div class="character-from">Resident Evil</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://share.google/BdkuhUKeXcNzeIdLC" alt="Billy Coen">
+                        <div class="character-name">Billy Coen</div>
+                        <div class="character-from">Resident Evil</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://share.google/H140tYu3ZZJkF4ce7" alt="Horangi">
+                        <div class="character-name">Horangi</div>
+                        <div class="character-from">Call of Duty</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://share.google/QfaPzDuTmlkccRbep" alt="Vladimir Makarov">
+                        <div class="character-name">Vladimir Makarov</div>
+                        <div class="character-from">Call of Duty</div>
+                    </div>
+                    <div class="character-card">
+                        <img src="https://share.google/7Ncc0gnHqMeb4MREi" alt="Philip Graves">
+                        <div class="character-name">Philip Graves</div>
+                        <div class="character-from">Call of Duty</div>
+                    </div>
+                    <!-- Пётр, Наполеон, Вольтер, Руна -->
                     <div class="character-card">
                         <img src="https://www.pravmir.ru/wp-content/uploads/2012/06/petr-1-768x496.jpg" alt="Peter the Great">
                         <div class="character-name">Peter the Great</div>
@@ -467,11 +511,79 @@
                         <div class="character-name">Voltaire</div>
                         <div class="character-from">Philosopher</div>
                     </div>
-                    <!-- НОВАЯ КАРТОЧКА: РУНА -->
                     <div class="character-card">
                         <img src="https://i.pinimg.com/originals/b3/b3/42/b3b342e539aa5295d1395c04a3ac0f59.jpg" alt="Runa">
                         <div class="character-name">Runa</div>
                         <div class="character-from">Kakegurui</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHIPS (новый раздел) -->
+        <div class="section">
+            <div class="label collapsible-trigger" id="shipsTrigger">SHIPS</div>
+            <div class="collapsible-content" id="shipsContent">
+                <div class="ship-grid">
+                    <div class="ship-card">
+                        <img src="https://share.google/EvMViLl3YUdEgNNQq" alt="Phillip & Chevalier">
+                        <div class="ship-name">Phillip & Chevalier</div>
+                        <div class="ship-from">Versailles</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/JMDEcqnjSgDhsRxtl" alt="Peter I & Menshikov">
+                        <div class="ship-name">Peter I & Menshikov</div>
+                        <div class="ship-from">The Russian Empire</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/VHBx8omfBOUiVSeiF" alt="Vox & Valentino">
+                        <div class="ship-name">Vox & Valentino</div>
+                        <div class="ship-from">Hazbin Hotel</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/n8zQrLTicx5zuzJ0q" alt="Black Hat x Dementia">
+                        <div class="ship-name">Black Hat x Dementia</div>
+                        <div class="ship-from">Злыдни</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/cRbyFhFUU0bhEE63F" alt="Mortis x Piper">
+                        <div class="ship-name">Mortis x Piper</div>
+                        <div class="ship-from">Brawl Stars</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/BLEzMg6WC6ajDj7mq" alt="Edgar x Emz">
+                        <div class="ship-name">Edgar x Emz</div>
+                        <div class="ship-from">Brawl Stars</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/WvQB6cu772jWrXJOK" alt="Melodie x Sirius">
+                        <div class="ship-name">Melodie x Sirius</div>
+                        <div class="ship-from">Brawl Stars</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/KICSLsytlEDA6DBod" alt="Adam x Eve">
+                        <div class="ship-name">Adam x Eve</div>
+                        <div class="ship-from">Bible</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/Tya6ZyzWSUDSjdDNP" alt="Killer x Dust">
+                        <div class="ship-name">Killer x Dust</div>
+                        <div class="ship-from">Underverse</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/XnUNC3PeZXsDyBjDb" alt="Vergil x V">
+                        <div class="ship-name">Vergil x V</div>
+                        <div class="ship-from">Devil May Cry</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/5pQUwYUUsBWyLgB4X" alt="Luis x Leon">
+                        <div class="ship-name">Luis x Leon</div>
+                        <div class="ship-from">Resident Evil</div>
+                    </div>
+                    <div class="ship-card">
+                        <img src="https://share.google/0c78gi73hOJQT761s" alt="Johnny x Kenshi">
+                        <div class="ship-name">Johnny x Kenshi</div>
+                        <div class="ship-from">Mortal Kombat</div>
                     </div>
                 </div>
             </div>
@@ -501,73 +613,6 @@
     </div>
 
     <script>
-        // ---------- ПАДАЮЩИЕ ВИШНИ (лёгкие, без следа) ----------
-        (function() {
-            const canvas = document.getElementById('particleCanvas');
-            const ctx = canvas.getContext('2d');
-
-            let width, height;
-            let cherries = [];
-            const maxCherries = 15;
-
-            function resize() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width;
-                canvas.height = height;
-            }
-            window.addEventListener('resize', resize);
-            resize();
-
-            class Cherry {
-                constructor() {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.size = 20 + Math.random() * 20;
-                    this.speed = 0.4 + Math.random() * 0.9;
-                    this.rotation = Math.random() * Math.PI * 2;
-                    this.rotSpeed = (Math.random() - 0.5) * 0.02;
-                    this.opacity = 0.6 + Math.random() * 0.3;
-                }
-                update() {
-                    this.y += this.speed;
-                    this.rotation += this.rotSpeed;
-                    if (this.y > height + 50) {
-                        this.y = -20;
-                        this.x = Math.random() * width;
-                    }
-                }
-                draw(ctx) {
-                    ctx.save();
-                    ctx.translate(this.x, this.y);
-                    ctx.rotate(this.rotation);
-                    ctx.font = `${this.size}px Arial`;
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    ctx.fillStyle = `rgba(190, 20, 40, ${this.opacity})`;
-                    ctx.shadowColor = '#c41e3a';
-                    ctx.shadowBlur = 6;
-                    ctx.fillText('🍒', 0, 0);
-                    ctx.restore();
-                }
-            }
-
-            while (cherries.length < maxCherries) {
-                cherries.push(new Cherry());
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, width, height);
-                for (let cherry of cherries) {
-                    cherry.update();
-                    cherry.draw(ctx);
-                }
-                requestAnimationFrame(animate);
-            }
-
-            animate();
-        })();
-
         // ---------- СВОРАЧИВАЕМЫЕ РАЗДЕЛЫ ----------
         (function() {
             const triggers = document.querySelectorAll('.collapsible-trigger');
@@ -582,21 +627,14 @@
             });
         })();
 
-        // ---------- ЧЕРЕДУЮЩИЕСЯ ФРАЗЫ НА ФАНДОМАХ ----------
+        // ---------- ВСПЛЫВАЮЩЕЕ "BOW BEFORE ME" ----------
         (function() {
             const tags = document.querySelectorAll('.fandom-tag');
-            const counters = new Map();
-
             tags.forEach(tag => {
-                counters.set(tag, 0);
                 tag.addEventListener('click', function(e) {
-                    const count = counters.get(tag) || 0;
-                    const phrase = count % 2 === 0 ? 'СКЛОНИСЬ ПРЕДО МНОЙ' : 'BOW BEFORE ME';
-                    counters.set(tag, count + 1);
-
                     const popup = document.createElement('div');
                     popup.className = 'popup-message';
-                    popup.textContent = phrase;
+                    popup.textContent = 'BOW BEFORE ME';
 
                     const x = e.clientX;
                     const y = e.clientY;
