@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cerise | I don't need god because I'm him</title>
 
-    <!-- ВСТРОЕННАЯ ИКОНКА ВКЛАДКИ (favicon) -->
+    <!-- ИКОНКА ВКЛАДКИ -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23030000' stroke='%23c41e3a' stroke-width='4'/%3E%3Ctext x='50' y='68' font-size='55' font-family='Georgia, serif' fill='%23ff4d6d' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
@@ -201,8 +201,8 @@
         .character-grid,
         .ship-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
             max-width: 700px;
             margin: 20px auto 0;
             padding: 0 10px;
@@ -213,11 +213,13 @@
             background: rgba(10, 0, 2, 0.6);
             border: 1px solid #4a0b1a;
             border-radius: 6px;
-            overflow: hidden;
             transition: all 0.4s;
             backdrop-filter: blur(5px);
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            min-height: 100px;
+            padding: 15px 10px;
         }
 
         .character-card:hover,
@@ -227,36 +229,21 @@
             transform: translateY(-5px);
         }
 
-        .character-card img,
-        .ship-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-            filter: grayscale(30%);
-            transition: filter 0.4s;
-        }
-
-        .character-card:hover img,
-        .ship-card:hover img {
-            filter: grayscale(0%);
-        }
-
         .character-name,
         .ship-name {
             font-family: 'Cinzel Decorative', cursive;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 2px;
             color: #fff;
-            margin: 10px 5px 3px;
+            margin: 5px 5px 3px;
             text-shadow: 0 0 5px #8b0000;
         }
 
         .character-from,
         .ship-from {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #b87c8a;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             letter-spacing: 1px;
             font-style: italic;
         }
@@ -384,7 +371,7 @@
             </div>
         </div>
 
-        <!-- MUSIC (сворачиваемый) -->
+        <!-- MUSIC -->
         <div class="section">
             <div class="label collapsible-trigger" id="musicTrigger">MUSIC</div>
             <div class="collapsible-content" id="musicContent">
@@ -413,103 +400,84 @@
             </div>
         </div>
 
-        <!-- FAVOURITES (сворачиваемый) -->
+        <!-- FAVOURITES -->
         <div class="section">
             <div class="label collapsible-trigger" id="favsTrigger">FAVOURITES</div>
             <div class="collapsible-content" id="favsContent">
                 <div class="character-grid">
                     <div class="character-card">
-                        <img src="https://i.playground.ru/e/BhAsIiDHtPgYw7DeB4D2JQ.jpeg" alt="V">
                         <div class="character-name">V</div>
                         <div class="character-from">Devil May Cry</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://images.stopgame.ru/news/2022/11/21/oupRMlF.jpg" alt="Bayonetta">
                         <div class="character-name">Bayonetta</div>
                         <div class="character-from">Bayonetta</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://i.ytimg.com/vi/h6e0-whg6EA/maxresdefault.jpg" alt="Gabriel">
                         <div class="character-name">Gabriel</div>
                         <div class="character-from">Ultrakill</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://i.playground.ru/e/t_lnmjZWjvLwETTcqSTLew.jpeg" alt="Dealer">
                         <div class="character-name">Dealer</div>
                         <div class="character-from">Buckshot Roulette</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://i.pinimg.com/originals/8d/3c/5b/8d3c5b33bf216feafe95d81176a87d6f.jpg" alt="Auditor">
                         <div class="character-name">Auditor</div>
                         <div class="character-from">Madness Combat</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://www.gamespot.com/a/uploads/screen_kubrick/1587/15875866/3500967-mk11-jade-promo-1.jpg" alt="Jade">
                         <div class="character-name">Jade</div>
                         <div class="character-from">Mortal Kombat</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://share.google/LrnoI4LpuW2DSyuAr" alt="Kenshi">
                         <div class="character-name">Kenshi</div>
                         <div class="character-from">Mortal Kombat</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://share.google/437A4dEZP4svPCfVU" alt="Bi Han / Noob Saibot">
                         <div class="character-name">Bi Han / Noob Saibot</div>
                         <div class="character-from">Mortal Kombat</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://share.google/blAjpKM39vGMgoKES" alt="Chevalier de Lorraine">
                         <div class="character-name">Chevalier de Lorraine</div>
                         <div class="character-from">Versailles</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://share.google/EIKWO5yDYeFvRvB18" alt="Luis Serra Navarro">
                         <div class="character-name">Luis Serra Navarro</div>
                         <div class="character-from">Resident Evil</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://share.google/wldZ3Yt2dSI3N04In" alt="Albert Wesker">
                         <div class="character-name">Albert Wesker</div>
                         <div class="character-from">Resident Evil</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://share.google/BdkuhUKeXcNzeIdLC" alt="Billy Coen">
                         <div class="character-name">Billy Coen</div>
                         <div class="character-from">Resident Evil</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://share.google/H140tYu3ZZJkF4ce7" alt="Horangi">
                         <div class="character-name">Horangi</div>
                         <div class="character-from">Call of Duty</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://share.google/QfaPzDuTmlkccRbep" alt="Vladimir Makarov">
                         <div class="character-name">Vladimir Makarov</div>
                         <div class="character-from">Call of Duty</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://share.google/7Ncc0gnHqMeb4MREi" alt="Philip Graves">
                         <div class="character-name">Philip Graves</div>
                         <div class="character-from">Call of Duty</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://www.pravmir.ru/wp-content/uploads/2012/06/petr-1-768x496.jpg" alt="Peter the Great">
                         <div class="character-name">Peter the Great</div>
                         <div class="character-from">History</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://i.ytimg.com/vi/WQL2VTkCqU0/maxresdefault.jpg" alt="Napoleon">
                         <div class="character-name">Napoleon Bonaparte</div>
                         <div class="character-from">History</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://img.gazeta.ru/files3/889/13371889/volter-pic4_zoom-1500x1500-30447.jpg" alt="Voltaire">
                         <div class="character-name">Voltaire</div>
                         <div class="character-from">Philosopher</div>
                     </div>
                     <div class="character-card">
-                        <img src="https://i.pinimg.com/originals/b3/b3/42/b3b342e539aa5295d1395c04a3ac0f59.jpg" alt="Runa">
                         <div class="character-name">Runa</div>
                         <div class="character-from">Kakegurui</div>
                     </div>
@@ -517,7 +485,7 @@
             </div>
         </div>
 
-        <!-- SHIPS (сворачиваемый) -->
+        <!-- SHIPS -->
         <div class="section">
             <div class="label collapsible-trigger" id="shipsTrigger">
                 SHIPS
@@ -526,62 +494,50 @@
             <div class="collapsible-content" id="shipsContent">
                 <div class="ship-grid">
                     <div class="ship-card">
-                        <img src="https://share.google/EvMViLl3YUdEgNNQq" alt="Phillip & Chevalier">
                         <div class="ship-name">Phillip & Chevalier</div>
                         <div class="ship-from">Versailles</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/JMDEcqnjSgDhsRxtl" alt="Peter I & Menshikov">
                         <div class="ship-name">Peter I & Menshikov</div>
                         <div class="ship-from">The Russian Empire</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/VHBx8omfBOUiVSeiF" alt="Vox & Valentino">
                         <div class="ship-name">Vox & Valentino</div>
                         <div class="ship-from">Hazbin Hotel</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/n8zQrLTicx5zuzJ0q" alt="Black Hat x Dementia">
                         <div class="ship-name">Black Hat x Dementia</div>
                         <div class="ship-from">Злыдни</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/cRbyFhFUU0bhEE63F" alt="Mortis x Piper">
                         <div class="ship-name">Mortis x Piper</div>
                         <div class="ship-from">Brawl Stars</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/BLEzMg6WC6ajDj7mq" alt="Edgar x Emz">
                         <div class="ship-name">Edgar x Emz</div>
                         <div class="ship-from">Brawl Stars</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/WvQB6cu772jWrXJOK" alt="Melodie x Sirius">
                         <div class="ship-name">Melodie x Sirius</div>
                         <div class="ship-from">Brawl Stars</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/KICSLsytlEDA6DBod" alt="Adam x Eve">
                         <div class="ship-name">Adam x Eve</div>
                         <div class="ship-from">Bible</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/Tya6ZyzWSUDSjdDNP" alt="Killer x Dust">
                         <div class="ship-name">Killer x Dust</div>
                         <div class="ship-from">Underverse</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/XnUNC3PeZXsDyBjDb" alt="Vergil x V">
                         <div class="ship-name">Vergil x V</div>
                         <div class="ship-from">Devil May Cry</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/5pQUwYUUsBWyLgB4X" alt="Luis x Leon">
                         <div class="ship-name">Luis x Leon</div>
                         <div class="ship-from">Resident Evil</div>
                     </div>
                     <div class="ship-card">
-                        <img src="https://share.google/0c78gi73hOJQT761s" alt="Johnny x Kenshi">
                         <div class="ship-name">Johnny x Kenshi</div>
                         <div class="ship-from">Mortal Kombat</div>
                     </div>
