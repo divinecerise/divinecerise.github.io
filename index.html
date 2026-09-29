@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cerise | I don't need god because I'm him</title>
 
-    <!-- ИКОНКА ВКЛАДКИ -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23030000' stroke='%23c41e3a' stroke-width='4'/%3E%3Ctext x='50' y='68' font-size='55' font-family='Georgia, serif' fill='%23ff4d6d' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
@@ -173,7 +172,8 @@
             color: #fff;
         }
 
-        .music-list {
+        .music-list,
+        .roblox-list {
             list-style: none;
             padding: 0;
             max-width: 400px;
@@ -189,13 +189,23 @@
             backdrop-filter: blur(4px);
         }
 
-        .music-list li {
+        .music-list li,
+        .roblox-list li {
             border-bottom: 1px dashed #4a0b1a;
             padding: 5px 0;
         }
 
-        .music-list li:last-child {
+        .music-list li:last-child,
+        .roblox-list li:last-child {
             border-bottom: none;
+        }
+
+        .roblox-list li strong {
+            color: #fff;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px #c41e3a;
         }
 
         .character-grid,
@@ -368,7 +378,41 @@
                 <span class="fandom-tag">Mortal Kombat</span>
                 <span class="fandom-tag">Call of Duty</span>
                 <span class="fandom-tag">Resident Evil</span>
+                <span class="fandom-tag">Roblox</span>
                 <a href="secret.html" target="_blank" class="secret-link">&amp; many more</a>
+            </div>
+        </div>
+
+        <!-- ROBLOX (новый сворачиваемый раздел) -->
+        <div class="section">
+            <div class="label collapsible-trigger" id="robloxTrigger">ROBLOX</div>
+            <div class="collapsible-content" id="robloxContent">
+                <ul class="roblox-list">
+                    <li><strong>DOORS</strong></li>
+                    <li><strong>PRESSURE</strong></li>
+                    <li>grace</li>
+                    <li>let him go</li>
+                    <li>fear elevator elevator</li>
+                    <li>work at a pizza place</li>
+                    <li>the presentation</li>
+                    <li>the long drive</li>
+                    <li>zombie attack</li>
+                    <li>minutes remain</li>
+                    <li>3008</li>
+                    <li>catalog avatar</li>
+                    <li><strong>TOWER OF HELL</strong></li>
+                    <li>be a parcour ninja</li>
+                    <li>the test[alpha]</li>
+                    <li><strong>M.E.G.</strong></li>
+                    <li>piggy</li>
+                    <li>zone 51</li>
+                    <li><strong>BLOCKERMAN'S MINESWEEPER</strong></li>
+                    <li>the butchery</li>
+                    <li><strong>EVADE</strong></li>
+                    <li>blair</li>
+                    <li>hooker</li>
+                    <li>etc.</li>
+                </ul>
             </div>
         </div>
 
@@ -475,6 +519,10 @@
                     <div class="character-card">
                         <div class="character-name">Sebastian Solace</div>
                         <div class="character-from">Pressure (Roblox)</div>
+                    </div>
+                    <div class="character-card">
+                        <div class="character-name">Starlight / Curious Light</div>
+                        <div class="character-from">DOORS (Roblox)</div>
                     </div>
                     <div class="character-card">
                         <div class="character-name">Peter the Great</div>
